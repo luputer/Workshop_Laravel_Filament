@@ -90,40 +90,40 @@
         </div>
         <div class="grid grid-cols-3 gap-6">
 
-            @forelse ($newWorkshops as $itemNewWorkshops )
-            <a href="{{ route('front.details', $itemNewWorkshops->slug) }}" class="card">
+            @forelse ($newWorkshops as $itemNewWorkshop )
+            <a href="{{ route('front.details', $itemNewWorkshop->slug) }}" class="card">
                 <div class="flex flex-col h-full justify-between rounded-3xl p-6 gap-9 bg-white">
                     <div class="flex flex-col gap-[18px]">
                         <div class="flex items-center gap-3">
                             <div class="w-16 h-16 rounded-full flex shrink-0 overflow-hidden">
-                                <img src="{{ storege::url($itemNewWorkshop->instructor->avatar) }}" class="w-full h-full object-cover" alt="avatar">
+                                <img src="{{ Storage::url($itemNewWorkshop->instructor->avatar) }}" class="w-full h-full object-cover" alt="avatar">
                             </div>
                             <div class="flex flex-col gap-[2px]">
                                 <p class="font-semibold text-lg leading-[27px]">
-                                    {{ $itemNewWorkshops->instructor->name }}
+                                    {{ $itemNewWorkshop->instructor->name }}
                                 </p>
                                 <p class="font-medium text-aktiv-grey">
-                                    {{ $itemNewWorkshops->instructor->occuaption }}
+                                    {{ $itemNewWorkshop->instructor->occuaption }}
                                 </p>
                             </div>
                         </div>
                         <div class="thumbnail-container relative h-[200px] rounded-xl bg-[#D9D9D9] overflow-hidden">
-                            <img src="assets/images/thumbnails/thumbnail2.png" class="w-full h-full object-cover" alt="thumbnail">
+                            <img src="{{ asset('assets/images/thumbnails/thumbnail2.png') }}" class="w-full h-full object-cover" alt="thumbnail">
                             @if($itemNewWorkshop->is_open)
                                 @if($itemNewWorkshop->has_started)
                                 <div class="absolute top-3 left-3 flex items-center rounded-full py-3 px-5 gap-1 bg-aktiv-orange text-white z-10">
-                                    <img src="{{ aset('assets/images/icons/timer-start.svg"') }} class="w-6 h-6" alt="icon">
+                                    <img src="{{ asset('assets/images/icons/timer-start.svg') }} " class="w-6 h-6" alt="icon">
                                     <span class="font-semibold">STARTED</span>
                                 </div>
                             @else
                             <div class="absolute top-3 left-3 flex items-center rounded-full py-3 px-5 gap-1 bg-aktiv-orange text-white z-10">
-                                <img src="{{ aset('assets/images/icons/timer-start.svg"') }} class="w-6 h-6" alt="icon">
+                                <img src="{{ asset('assets/images/icons/timer-start.svg')}}" class="w-6 h-6" alt="icon">
                                 <span class="font-semibold">OPEN</span>
                             </div>
                             @endif
                             @else
                             <div class="absolute top-3 left-3 flex items-center rounded-full py-3 px-5 gap-1 bg-aktiv-orange text-white z-10">
-                                <img src="{{ aset('assets/images/icons/timer-start.svg"') }} class="w-6 h-6" alt="icon">
+                                <img src="{{ asset('assets/images/icons/timer-start.svg') }}" class="w-6 h-6" alt="icon">
                                 <span class="font-semibold">ClOSED</span>
                             </div>
                             @endif
@@ -133,28 +133,28 @@
                                 <div class="flex items-center gap-1">
                                     <img src="assets/images/icons/calendar-2.svg" class="w-6 h-6 flex shrink-0" alt="icon">
                                     <span class="font-medium text-aktiv-grey">
-                                      {{ $itemNewWorkshops->started_at->format('M d y') }}
+                                      {{ $itemNewWorkshop->started_at->format('M d y') }}
                                     </span>
                                 </div>
                                 <div class="flex items-center gap-1">
                                     <img src="assets/images/icons/timer.svg" class="w-6 h-6 flex shrink-0" alt="icon">
                                     <span class="font-medium text-aktiv-grey">
-                                        {{ $itemNewWorkshops->time_at->format('h:i A') }}
+                                        {{ $itemNewWorkshop->time_at->format('h:i A') }}
                                     </span>
                                 </div>
                             </div>
                             <h3 class="title min-h-[56px] font-semibold text-xl line-clamp-2 hover:line-clamp-none">
-                                {{ $itemNewWorkshops->name }}
+                                {{ $itemNewWorkshop->name }}
                             </h3>
                             <p class="font-medium text-aktiv-grey">
-                                {{ $itemNewWorkshops->category->name }}
+                                {{ $itemNewWorkshop->category->name }}
                             </p>
                         </div>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-[6px]">
                             <p class="font-semibold text-2xl leading-8 text-aktiv-red">
-                                Rp {{ number_format($itemNewWorkshops->price, 0, ',','.') }}
+                                Rp {{ number_format($itemNewWorkshop->price, 0, ',','.') }}
                             </p>
                             <p class="font-medium text-aktiv-grey">/person</p>
                         </div>
@@ -186,7 +186,7 @@
                     <div class="swiper-slide">
                         <div class="testimony-card w-full max-w-[1176px] h-[413px] mx-auto flex items-center rounded-2xl overflow-hidden">
                             <div class="flex h-full w-[436px] shrink-0 bg-aktiv-orange overflow-hidden">
-                                <img src="assets/images/photos/testimony1.png" class="w-full h-full object-cover" alt="photo">
+                                <img src="{{ asset('assets/images/photos/testimony1.png') }}" class="w-full h-full object-cover" alt="photo">
                             </div>
                             <div class="h-full w-full flex flex-col justify-between p-[42px] bg-[linear-gradient(280.42deg,#5B8CE9_-42.59%,#4EB6F5_50.66%,#5B8CE9_143.91%)]">
                                 <p class="font-['Times_New_Roman'] font-bold text-[38px] leading-[60.8px] text-white">
@@ -198,11 +198,11 @@
                                         <p class="font-medium text-white">Mother of Tenz</p>
                                     </div>
                                     <div class="flex items-center">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}" class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}" class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}" class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}" class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}" class="p-[5px] w-8 h-8" alt="star">
                                     </div>
                                 </div>
                             </div>
@@ -223,11 +223,11 @@
                                         <p class="font-medium text-white">Mother of Tenz</p>
                                     </div>
                                     <div class="flex items-center">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
-                                        <img src="assets/images/icons/Star 1.svg" class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}" 1.svg" class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}"class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}"class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}"class="p-[5px] w-8 h-8" alt="star">
+                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}"class="p-[5px] w-8 h-8" alt="star">
                                     </div>
                                 </div>
                             </div>
