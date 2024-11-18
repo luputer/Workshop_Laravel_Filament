@@ -9,12 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceDisplay = document.getElementById('sub_total');
     const taxDisplay = document.getElementById('tax');
     const totalPriceDisplay = document.getElementById('total_amount');
+    const workshopPrice = document.getElementById('workshopPrice');
 
     const participantsSection = document.getElementById('Attendants-Section');
 
     // Constants
-    const unitPrice = 160000; // Price per item
+    const unitPrice = workshopPrice.value; // Price per item
     const ppnRate = 0.11; // PPN rate (11%)
+
 
     function updatePaymentDetails(count) {
         const price = unitPrice * count;
